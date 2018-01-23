@@ -24,7 +24,7 @@ class Device(models.Model):
      
 class Data(models.Model):
     
-    device = models.ForeignKey(Device, blank= True)
+    device = models.ForeignKey(Device, blank= True, on_delete=models.CASCADE)
     pm25 = models.CharField(max_length = 255)
     co2 = models.CharField(max_length = 255)
     received_at = models.DateTimeField(auto_now_add =True)
