@@ -11,12 +11,11 @@ class Owner(models.Model):
         return self.name + ' - ' + self.email
     
     
-class Device(models.Model):
-    
+class Device(models.Model): 
     deviceserial = models.CharField(max_length = 255)
     devicelocation = models.CharField(max_length = 255)
     added_at = models.DateTimeField(auto_now_add =True)
-    owner = models.ForeignKey(Owner, blank= True)
+    owner = models.ForeignKey(Owner, blank= True, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.deviceserial
