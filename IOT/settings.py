@@ -25,7 +25,7 @@ SECRET_KEY = 'v9=cnbgihq-l(jts4ori(iylcpb+!q5rsivid0g5hs##%r%_9c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'dataview',
 ]
 
@@ -114,6 +115,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+STATICFILES_DIRS = (
+
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    'C:/Users/Alvin/Google Drive/PROGRAMMING WORK/Django/IOT/dataview/static/',
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

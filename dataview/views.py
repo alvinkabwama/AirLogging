@@ -1,15 +1,22 @@
-#from django.shortcuts import render
+from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Data, Device
 
 
-#def datashow(request):
-    
-    
+def datashow(request):
+    if(request.method == 'GET'):
+        serialnumber = '0645'
+        selectedevice =  Device.objects.get(deviceserial = serialnumber)
+        devicedata = Data.objects.filter(device = selectedevice)
+        context = {'devicedata': devicedata}
+        return render(request, 'tableview.html', context)
+        
+        
+        
+
 def datarecieve(request):
     if(request.method == 'GET'):
-        serialnumber = request.GET.get("serial") 
-        
+        serialnumber = request.GET.get("serial")  
         in_c02 = request.GET.get("c02")
         in_pm25 = request.GET.get("pm25")
         
@@ -29,6 +36,11 @@ def datarecieve(request):
             
         else:
             return HttpResponse("<br><h3> Data Missing </h3>")
+        
+def datasend(request):
+    if(request.method == 'GET'):
+        return render(request, 'datasend.html')
+        
         
         
         
