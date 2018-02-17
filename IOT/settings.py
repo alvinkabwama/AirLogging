@@ -75,12 +75,27 @@ WSGI_APPLICATION = 'IOT.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        
     }
-}
+}'''
+    
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'idairdata',
+        'HOST': '35.202.45.251',
+        'PORT': '5432',     
+        }
+    }
+    
+    
+    
 
 
 # Password validation
